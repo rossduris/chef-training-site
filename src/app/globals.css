@@ -43,6 +43,19 @@ body {
   padding: 24px 0 0;
   z-index: -10;
 }
+.chef-bg {
+  background: slategray;
+  background: url("/chef-bg.png") no-repeat 0 -10em #020202;
+  background-size: cover;
+  display: flex;
+  width: 100%;
+  height: 120%;
+  min-height: 100vh;
+  justify-content: center;
+  padding: 24px 0 0;
+  z-index: -10;
+  object-fit: fill;
+}
 .header {
   margin: 10px;
   align-items: center;
@@ -66,8 +79,12 @@ h1 {
   @apply hidden sm:flex;
 }
 
+header {
+  @apply px-10 z-30;
+}
+
 .normal {
-  @apply bg-transparent fixed text-white w-full justify-around items-center flex font-bold text-xl mt-10 transition-all duration-300 ease-in-out;
+  @apply bg-transparent fixed text-white w-full justify-between  items-center flex font-bold text-xl mt-10 transition-all duration-300 ease-in-out;
 }
 .normal {
   animation: drop-in 0.25s ease-in forwards;
@@ -86,10 +103,13 @@ h1 {
   margin-top: 0;
   position: fixed;
   background: #151517;
-  padding: 10px 0;
+  padding: 10px;
   top: 0;
   display: flex;
   align-items: center;
+}
+.scrolling {
+  @apply px-10;
 }
 .scrolling .menu {
   border: none;
@@ -105,14 +125,14 @@ h1 {
 }
 
 .feature-span {
-  @apply min-h-[400px] bg-black bg-opacity-20 rounded-lg sm:min-h-[400px] gap-10 m-2 justify-center items-center flex flex-col py-10;
+  @apply min-h-[400px]   rounded-lg sm:min-h-[400px] gap-10 m-2 justify-center items-center flex flex-col py-10;
 }
 .feature-span p {
   padding: 0 20px 20px 20px;
 }
 
 .feature-span button {
-  @apply p-3 border rounded-full transition-all duration-300 ease-in-out hover:bg-black cursor-pointer z-20 relative;
+  @apply p-3 border rounded-full transition-all duration-300 ease-in-out hover:bg-black cursor-pointer z-0 relative;
 }
 .on-page {
   top: 0;
@@ -139,4 +159,15 @@ h1 {
 .book-now-button:hover {
   transform: translateY(0.25rem); /* 4px */
   background-color: #94a3b8; /* slate-300 color */
+}
+
+.bottom-fade {
+  width: 100%;
+  height: 10px;
+  position: absolute;
+  bottom: 0;
+  background-color: red;
+}
+
+.booking-form {
 }

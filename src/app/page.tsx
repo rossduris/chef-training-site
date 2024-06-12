@@ -9,7 +9,7 @@ export default function Home() {
         <div className="gradient-bg-absolute"></div>
       </div>
       <Hero />
-      <div className=" grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 bg-transparent p-1  w-full justify-center items-center text-center text-white">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 bg-transparent p-1  w-full justify-center items-center text-center text-white max-w-7xl">
         <FeatureComponent />
         <span className=" feature-span gradient-bg">
           <Image
