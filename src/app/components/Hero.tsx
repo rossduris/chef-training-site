@@ -3,8 +3,8 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className="   flex flex-col justify-around items-center  lg:my-20 my-10 xl:mt-32 min-h-screen">
-      <h1 className=" text-6xl sm:text-7xl text-white font-bold mt-32 px-20 text-shadow">
+    <div className="   flex flex-col justify-around items-center  lg:my-20 my-10 xl:mt-32  ">
+      <h1 className=" text-6xl sm:text-7xl text-white font-bold mt-32 p-20 text-shadow">
         Culinary Mastery
       </h1>
       <span className=" text-shadow bookmark-font text-white my-5">With </span>
