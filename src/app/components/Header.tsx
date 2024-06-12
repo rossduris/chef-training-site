@@ -8,6 +8,11 @@ const Header = () => {
   useEffect(() => {
     const header = headerRef.current;
     if (!header) return;
+    if (window.scrollY > 100) {
+      header.classList.add("scrolling");
+    } else {
+      header.classList.remove("scrolling");
+    }
     const handleScroll = () => {
       // console.log(window.scrollX);
       console.log(window.scrollY);

@@ -1,18 +1,22 @@
 import Image from "next/image";
 import Hero from "./components/Hero";
+import FeatureComponent from "./components/FeatureComponent";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-start ">
-      <div className="slate-fruit-hero"></div>
+      <div className="slate-fruit-hero">
+        <div className="gradient-bg-absolute"></div>
+      </div>
       <Hero />
       <div className=" grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 bg-transparent p-1  w-full justify-center items-center text-center text-white">
-        <span className="feature-span gradient-bg">
+        <FeatureComponent />
+        <span className=" feature-span gradient-bg">
           <Image
-            src="/chef.png"
+            src="/book.png"
             width={200}
             height={200}
-            alt="chef"
+            alt="book"
             className="rounded-full"
           />
           <p>
@@ -21,16 +25,7 @@ export default function Home() {
             voluptatum nostrum delectus! In assumenda, aliquid inventore a earum
             necessitatibus laboriosam nisi?
           </p>
-          <button>Learn More</button>
-        </span>
-        <span className=" feature-span">
-          <Image
-            src="/ .png"
-            width={200}
-            height={200}
-            alt="book"
-            className="rounded-full"
-          />
+          <button>Buy The Book</button>
         </span>
         <span className="feature-span">
           <Image
