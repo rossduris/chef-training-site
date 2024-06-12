@@ -37,7 +37,7 @@ body {
   background-size: cover;
   display: flex;
   width: 100%;
-  height: auto;
+  height: 300%;
   min-height: 100vh;
   justify-content: center;
   padding: 24px 0 0;
@@ -116,10 +116,10 @@ header {
 }
 
 .gradient-bg {
-  background: linear-gradient(to top, black 1%, transparent 30%);
+  background: linear-gradient(to top, black 1%, transparent 100%);
 }
 .gradient-bg-absolute {
-  background: linear-gradient(to top, black 1%, transparent 30%);
+  background: linear-gradient(to top, black 10%, transparent 100%);
   position: absolute;
   bottom: 0;
 }

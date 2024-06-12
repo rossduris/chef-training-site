@@ -3,7 +3,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className=" min-h-[600px] flex flex-col justify-around items-center">
+    <div className="   flex flex-col justify-around items-center  lg:my-20 my-10 xl:mt-32 min-h-screen">
       <h1 className=" text-6xl sm:text-7xl text-white font-bold mt-32 px-20 text-shadow">
         Culinary Mastery
       </h1>

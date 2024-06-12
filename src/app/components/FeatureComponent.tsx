@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 const FeatureComponent = () => {
   const [loaded, setLoaded] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const featureRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
