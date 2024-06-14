@@ -49,21 +49,21 @@ const FeatureComponent = () => {
   }, []);
 
   return (
-    <div className=" flex flex-col bg-transparent p-1  w-full justify-center items-center text-center text-white max-w-7xl">
+    <div className=" flex flex-col bg-transparent w-full justify-center items-center text-center text-white max-w-7xl">
       <span ref={featureRefs[0]} className="">
         <span
           className={`${
             isVisible[0] ? "on-page" : "off-page"
-          } flex flex-col justify-center items-center max-w-3xl gradient-bg p-20 w-full`}
+          } flex flex-col justify-center items-center max-w-3xl gradient-bg p-20 w-full  shadow-lg rounded-2xl`}
         >
           <Image
             src="/chef.png"
             width={200}
             height={200}
             alt="chef"
-            className="rounded-full"
+            className={`${isVisible[0] ? "on-page" : "off-page"} rounded-full`}
           />
-          <p>
+          <p className={`${isVisible[0] ? "on-page2" : "off-page"} `}>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque
             fugiat excepturi totam repudiandae, quo ad et accusamus, eligendi
             voluptatum nostrum delectus! In assumenda, aliquid inventore a earum
@@ -99,7 +99,7 @@ const FeatureComponent = () => {
       <span ref={featureRefs[2]} className="">
         <span
           className={`${
-            isVisible[2] ? "on-page" : "off-page"
+            isVisible[2] ? "on-page3" : "off-page3"
           } flex flex-col justify-center items-center max-w-3xl gradient-bg p-20 w-full`}
         >
           <Image

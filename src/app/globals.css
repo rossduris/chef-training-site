@@ -4,6 +4,9 @@
 
 body {
   background: #020202;
+  background: url("/fruit-bg.png") no-repeat 0 -10em #020202;
+  background-size: cover;
+  background-position: center top;
 }
 
 @font-face {
@@ -32,7 +35,7 @@ body {
 
 .slate-fruit-hero {
   background: slategray;
-  background: url("/fruit-bg.png") no-repeat 0 -10em #020202;
+
   position: absolute;
   background-size: cover;
   display: flex;
@@ -89,15 +92,6 @@ header {
   animation: drop-in 0.25s ease-in forwards;
 }
 
-@keyframes drop-in {
-  0% {
-    top: -10px;
-  }
-  100% {
-    top: 0px;
-  }
-}
-
 .scrolling {
   margin-top: 0;
   position: fixed;
@@ -139,8 +133,30 @@ header {
   transition: all 0.5s ease-in-out;
 }
 
+.on-page2 {
+  top: 0;
+  opacity: 1;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+  transition-delay: 1s;
+  animation: slide-in 0.5s ease-in;
+}
+
 .off-page {
   top: 50px;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+.on-page3 {
+  left: 0px;
+  opacity: 1;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+  /* transition-delay: 1s; */
+}
+
+.off-page3 {
+  left: -50px;
   opacity: 0;
   transition: all 0.5s ease-in-out;
 }
@@ -161,4 +177,22 @@ header {
 }
 
 .booking-form {
+}
+
+@keyframes drop-in {
+  0% {
+    top: -10px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    left: -10px;
+  }
+  100% {
+    left: 0px;
+  }
 }
