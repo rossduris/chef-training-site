@@ -41,8 +41,8 @@ const FeatureComponent = () => {
 
     return () => {
       observers.forEach((observer, index) => {
-        if (observer && featureRefs[index].current) {
-          observer.unobserve(featureRefs[index].current);
+        if (observer && (featureRefs[index].current as HTMLSpanElement)) {
+          observer.unobserve(featureRefs[index].current as HTMLSpanElement);
         }
       });
     };
