@@ -54,49 +54,30 @@ const FeatureComponent = () => {
         <span
           className={`${
             isVisible[0] ? "on-page" : "off-page"
-          } flex flex-col justify-center items-center max-w-3xl gradient-bg p-20 w-full  shadow-lg rounded-2xl`}
+          } flex flex-col sm:flex-row justify-center items-center   gradient-bg p-20 w-full  shadow-lg  `}
         >
           <Image
-            src="/chef.png"
-            width={200}
-            height={200}
+            src="/chef-cutout.png"
+            width={500}
+            height={500}
             alt="chef"
-            className={`${isVisible[0] ? "on-page" : "off-page"} rounded-full`}
+            className={`${isVisible[0] ? "on-page" : "off-page"}  m-10`}
           />
-          <p className={`${isVisible[0] ? "on-page2" : "off-page"} `}>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque
-            fugiat excepturi totam repudiandae, quo ad et accusamus, eligendi
-            voluptatum nostrum delectus! In assumenda, aliquid inventore a earum
-            necessitatibus laboriosam nisi?
-          </p>
-          <button className=" border p-4 rounded-full mt-8">Learn More</button>
+          <span className={`${isVisible[0] ? "on-page2" : "off-page"} `}>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Doloremque fugiat excepturi totam repudiandae, quo ad et
+              accusamus, eligendi voluptatum nostrum delectus! In assumenda,
+              aliquid inventore a earum necessitatibus laboriosam nisi?
+            </p>
+            <button className=" border p-4 rounded-full mt-8">
+              Learn More
+            </button>
+          </span>
         </span>
       </span>
-      <span ref={featureRefs[1]} className="">
-        <span
-          className={`${
-            isVisible[1] ? "on-page" : "off-page"
-          } flex flex-col justify-center items-center max-w-3xl gradient-bg p-20 w-full`}
-        >
-          <Image
-            src="/book.png"
-            width={200}
-            height={200}
-            alt="book"
-            className="rounded-full"
-          />
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque
-            fugiat excepturi totam repudiandae, quo ad et accusamus, eligendi
-            voluptatum nostrum delectus! In assumenda, aliquid inventore a earum
-            necessitatibus laboriosam nisi?
-          </p>
-          <button className=" border p-4 rounded-full mt-8">
-            Buy The Book
-          </button>
-        </span>
-      </span>
-      <span ref={featureRefs[2]} className="">
+
+      {/* <span ref={featureRefs[2]} className="">
         <span
           className={`${
             isVisible[2] ? "on-page3" : "off-page3"
@@ -111,22 +92,53 @@ const FeatureComponent = () => {
           />
         </span>
         <span>Review Section</span>
-      </span>
-      {/* <span ref={featureRefs[3]} className="">
+      </span> */}
+      <span ref={featureRefs[3]} className="w-full">
         <span
           className={`${
-            isVisible[3] ? "on-page" : "off-page"
-          } flex flex-col justify-center items-center max-w-3xl gradient-bg p-20 w-full`}
+            isVisible[3] ? "on-page3" : "off-page3"
+          }  flex justify-around w-full`}
         >
           <Image
-            src="/chef.png"
+            src="/salt.png"
             width={200}
             height={200}
             alt="chef"
-            className="rounded-full"
+            className="rounded-full bg-transparent  "
+          />
+          <Image
+            src="/spice.png"
+            width={200}
+            height={200}
+            alt="chef"
+            className="rounded-full "
           />
         </span>
-      </span> */}
+      </span>
+      <span ref={featureRefs[1]} className="">
+        <span
+          className={`${
+            isVisible[1] ? "on-page" : "off-page"
+          } flex flex-col justify-center items-center max-w-3xl gradient-bg p-20 w-full`}
+        >
+          <Image
+            src="/students.png"
+            width={600}
+            height={200}
+            alt="book"
+            className="rounded-lg m-10"
+          />
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque
+            fugiat excepturi totam repudiandae, quo ad et accusamus, eligendi
+            voluptatum nostrum delectus! In assumenda, aliquid inventore a earum
+            necessitatibus laboriosam nisi?
+          </p>
+          <button className=" border p-4 rounded-full mt-8">
+            Loved By the Best
+          </button>
+        </span>
+      </span>
     </div>
   );
 };
