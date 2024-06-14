@@ -1,9 +1,11 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { Bars3Icon, BeakerIcon } from "@heroicons/react/24/solid";
+import { CartContext } from "./CartProvider";
 const Header = () => {
   const headerRef = useRef<HTMLDivElement>(null);
+  const { cart } = useContext(CartContext);
 
   useEffect(() => {
     const header = headerRef.current;
@@ -13,6 +15,7 @@ const Header = () => {
     } else {
       header.classList.remove("scrolling");
     }
+
     const handleScroll = () => {
       // console.log(window.scrollX);
       console.log(window.scrollY);
@@ -33,9 +36,8 @@ const Header = () => {
   return (
     <header ref={headerRef} className=" normal z-10 ">
       <span className="logo">
-        {" "}
         <span className=" text-white text-[2em] font-thin text-shadow  signature-font   text-center ">
-          Raphael Savoureux
+          <Link href="/">Raphael Savoureux</Link>
         </span>
       </span>
       <nav className="menu">
@@ -46,6 +48,7 @@ const Header = () => {
         <Link href="/">Menu</Link>
       </nav>
       <nav className="flex sm:hidden">
+        {JSON.stringify(cart)}
         <Bars3Icon className="size-8 text-white font-bold cursor-pointer" />
       </nav>
     </header>

@@ -15,7 +15,7 @@ const Hero = () => {
       </>
 
       <span className=" text-white bookmark-font text-shadow text-2xl mt-10">
-        Book Your Spot
+        Book Your Spot Today
       </span>
 
       <span className="book-now-button my-10">
