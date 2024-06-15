@@ -26,7 +26,7 @@ const FeatureComponent = () => {
                 newState[index] = true;
                 return newState;
               });
-              observer.unobserve(featureDiv); // Stop observing once it's visible
+              // observer.unobserve(featureDiv); // Stop observing once it's visible
             }
           });
         },
@@ -54,17 +54,14 @@ const FeatureComponent = () => {
         <span
           className={`${
             isVisible[0] ? "on-page" : "off-page"
-          } flex flex-col sm:flex-row justify-center items-center   gradient-bg p-20 w-full  shadow-lg  `}
+          } flex flex-col md:flex-row justify-center items-center  gradient-bg rounded-sm  w-full  shadow-lg  `}
         >
-          <Image
-            src="/chef-cutout.png"
-            width={500}
-            height={500}
-            alt="chef"
-            className={`${isVisible[0] ? "on-page" : "off-page"}  m-10`}
-          />
-          <span className={`${isVisible[0] ? "on-page2" : "off-page"} `}>
-            <p>
+          <span
+            className={`${
+              isVisible[0] ? "on-page2" : "off-page"
+            } m-10  order-2 sm:order-1 text-left items-end`}
+          >
+            <p className=" max-w-60">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               Doloremque fugiat excepturi totam repudiandae, quo ad et
               accusamus, eligendi voluptatum nostrum delectus! In assumenda,
@@ -74,6 +71,15 @@ const FeatureComponent = () => {
               Learn More
             </button>
           </span>
+          <Image
+            src="/chef-cutout.png"
+            width={500}
+            height={500}
+            alt="chef"
+            className={`${
+              isVisible[0] ? "on-page" : "off-page"
+            }  m-10 w-[auto] max-h-[500px]`}
+          />
         </span>
       </span>
 
@@ -95,25 +101,52 @@ const FeatureComponent = () => {
       </span> */}
       <span ref={featureRefs[3]} className="w-full">
         <span
-          className={`${
-            isVisible[3] ? "on-page3" : "off-page3"
-          }  flex justify-around w-full`}
+          className={`   flex justify-around w-full flex-col items-center relative`}
         >
           <Image
             src="/salt.png"
             width={200}
             height={200}
             alt="chef"
-            className="rounded-full bg-transparent  "
+            className={`rounded-full bg-transparent  ${
+              isVisible[3] ? "on-page4" : "off-page-right"
+            }`}
           />
           <Image
             src="/spice.png"
             width={200}
             height={200}
             alt="chef"
-            className="rounded-full "
+            className={`rounded-full bg-transparent  ${
+              isVisible[3] ? "on-page3" : "off-page3"
+            }`}
           />
+          <Image
+            src="/knife.png"
+            width={500}
+            height={200}
+            alt="chef"
+            className={`rounded-full bg-transparent  ${
+              isVisible[3] ? "on-page3" : "off-page3"
+            }`}
+          />
+          <div className=" absolute top-32 right-0">
+            <Image
+              src="/ingredients.png"
+              width={900}
+              height={200}
+              alt="chef"
+              className={`rounded-full bg-transparent  ${
+                isVisible[3] ? "on-page3" : "off-page3"
+              }`}
+            />
+          </div>
         </span>
+      </span>
+      <span className=" bg-white flex w-full h-[500px]">
+        <h3 className=" text-black text-center w-full text-4xl bookmark-font m-10">
+          Proven Techniques
+        </h3>
       </span>
       <span ref={featureRefs[1]} className="">
         <span

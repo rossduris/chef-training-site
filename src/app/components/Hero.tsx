@@ -9,7 +9,7 @@ const Hero = () => {
       </h1>
       <span className=" text-shadow bookmark-font text-white my-2">With </span>
       <>
-        <span className=" text-white text-[10em] text-shadow  signature-font leading-[120px] text-center my-10 ">
+        <span className=" text-white text-[10em] text-shadow  signature-font leading-[120px] text-center my-10  fade-in">
           Raphael Savoureux
         </span>
       </>
@@ -18,9 +18,12 @@ const Hero = () => {
         Book Your Spot Today
       </span>
 
-      <span className="book-now-button my-10">
-        <Link href="/book">Book Now</Link>
-      </span>
+      <Link
+        href="/book"
+        className=" bg-white p-3 rounded-lg shadow-lg font-bold mt-10 hover:bg-slate-100"
+      >
+        Book Now
+      </Link>
     </div>
   );
 };
