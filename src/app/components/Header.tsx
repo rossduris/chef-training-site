@@ -2,10 +2,11 @@
 import Link from "next/link";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { Bars3Icon, BeakerIcon, XMarkIcon } from "@heroicons/react/24/solid";
-import { CartContext } from "./CartProvider";
+import { useCart } from "./CartProvider";
 const Header = () => {
   const headerRef = useRef<HTMLDivElement>(null);
-  const { cart } = useContext(CartContext);
+
+  const { items, removeItem, addItem } = useCart();
 
   useEffect(() => {
     const header = headerRef.current;
@@ -61,7 +62,18 @@ const Header = () => {
         )}
       </button>
       <nav className={`mobile-nav ${isOpen ? "open" : ""}`}>
-        {JSON.stringify(cart)}
+        <div className="shopping-cart">
+          <h2>Cart Items</h2>
+          <ul>
+            {items.map((item) => (
+              <li key={item.id}>
+                {item.name} - ${item.price}
+                <button onClick={() => removeItem(item.id)}>Remove</button>
+              </li>
+            ))}
+          </ul>
+          <button onClick={() => addItem("New Item", 29.99)}>Add Item</button>
+        </div>
 
         <ul>
           <li>

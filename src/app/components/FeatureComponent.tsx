@@ -143,11 +143,11 @@ const FeatureComponent = () => {
           </div>
         </span>
       </span>
-      <span className=" bg-white flex w-full h-[500px]">
+      {/* <span className=" bg-white flex w-full h-[500px]">
         <h3 className=" text-black text-center w-full text-4xl bookmark-font m-10">
           Proven Techniques
         </h3>
-      </span>
+      </span> */}
       <span ref={featureRefs[1]} className="">
         <span
           className={`${

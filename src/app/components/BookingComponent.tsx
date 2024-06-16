@@ -1,11 +1,11 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
-import { CartContext } from "./CartProvider";
-
+import { useCart } from "./CartProvider";
 const BookingComponent = () => {
   const [trainingPackage, setTrainingPackage] = useState("");
   const [demoData, setDemoData] = useState<JSON>();
-  const { cart } = useContext(CartContext);
+
+  const { items } = useCart();
 
   useEffect(() => {
     const savedPackage = localStorage.getItem("trainingPackage");
@@ -41,7 +41,7 @@ const BookingComponent = () => {
               trainingPackage === "BASIC" ? "bg-[#8e8e8e]" : "bg-[#f2f2f2]"
             } rounded-md p-2 shadow-lg border border-white`}
           >
-            CHOOSE PACKAGE {JSON.stringify(cart)}
+            PACKAGE 1
           </span>
           <span
             onClick={() => setTrainingPackage("INTERMEDIATE")}
@@ -51,7 +51,7 @@ const BookingComponent = () => {
                 : "bg-[#f2f2f2]"
             } rounded-md p-2 shadow-lg border border-white`}
           >
-            CHOOSE PACKAGE {JSON.stringify(cart)}
+            PACKAGE 2
           </span>
           <span
             onClick={() => setTrainingPackage("ADVANCED")}
@@ -59,7 +59,7 @@ const BookingComponent = () => {
               trainingPackage === "ADVANCED" ? "bg-[#8e8e8e]" : "bg-[#f2f2f2]"
             } rounded-md p-2 shadow-lg border border-white`}
           >
-            CHOOSE PACKAGE {JSON.stringify(cart)}
+            PACKAGE 3
           </span>
         </section>
       </div>

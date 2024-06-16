@@ -1,39 +1,98 @@
 "use client";
-import React, { useState, createContext, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useReducer,
+  ReactNode,
+  useEffect,
+} from "react";
+import { v4 as uuidv4 } from "uuid";
+import useLocalStorage from "../hooks/useLocalStorage"; // Adjust the path as necessary
 
-export interface CartItem {
-  id: number;
+type CartItem = {
+  id: string;
   name: string;
-}
+  price: number;
+};
 
-export interface CartContextType {
-  cart: CartItem[];
-  addToCart: (item: CartItem) => void;
-  removeFromCart: (itemId: number) => void;
-}
+type CartState = {
+  items: CartItem[];
+};
 
-export const CartContext = createContext<CartContextType>({
-  cart: [{ id: 1, name: "bag" }],
-  addToCart: () => {},
-  removeFromCart: () => {},
-});
+type CartAction =
+  | { type: "ADD_ITEM"; item: CartItem }
+  | { type: "REMOVE_ITEM"; id: string }
+  | { type: "INITIALIZE"; items: CartItem[] };
 
-const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [cart, setCart] = useState<CartItem[]>([{ id: 1, name: "bag" }]);
+type CartContextType = {
+  state: CartState;
+  dispatch: React.Dispatch<CartAction>;
+  addItem: (name: string, price: number) => void;
+  removeItem: (id: string) => void;
+  items: CartItem[];
+};
 
-  const addToCart = (item: CartItem) => {
-    setCart((prevCart) => [...prevCart, item]);
+const initialState: CartState = {
+  items: [],
+};
+
+const cartReducer = (state: CartState, action: CartAction): CartState => {
+  switch (action.type) {
+    case "INITIALIZE":
+      return { ...state, items: action.items };
+    case "ADD_ITEM":
+      return { ...state, items: [...state.items, action.item] };
+    case "REMOVE_ITEM":
+      return {
+        ...state,
+        items: state.items.filter((item) => item.id !== action.id),
+      };
+    default:
+      return state;
+  }
+};
+
+const CartContext = createContext<CartContextType | null>(null);
+
+export const CartProvider = ({ children }: { children: ReactNode }) => {
+  const [storedCart, setStoredCart] = useLocalStorage("cart", initialState);
+  const [state, dispatch] = useReducer(cartReducer, initialState);
+
+  // Load initial state from local storage on client side
+  useEffect(() => {
+    if (storedCart.items.length > 0) {
+      dispatch({ type: "INITIALIZE", items: storedCart.items });
+    }
+  }, []);
+
+  useEffect(() => {
+    setStoredCart(state);
+  }, [state]);
+
+  const addItem = (name: string, price: number) => {
+    const newItem = { id: uuidv4(), name, price };
+    dispatch({ type: "ADD_ITEM", item: newItem });
   };
 
-  const removeFromCart = (itemId: number) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== itemId));
+  const removeItem = (id: string) => {
+    dispatch({ type: "REMOVE_ITEM", id });
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider
+      value={{ state, dispatch, addItem, removeItem, items: state.items }}
+    >
       {children}
     </CartContext.Provider>
   );
 };
 
-export default CartProvider;
+export const useCart = () => {
+  const ctx = useContext(CartContext);
+
+  if (!ctx) {
+    throw new Error("useCart must be used within a CartProvider");
+  }
+
+  return ctx;
+};
