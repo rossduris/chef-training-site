@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-import React, { useContext, useEffect, useRef } from "react";
-import { Bars3Icon, BeakerIcon } from "@heroicons/react/24/solid";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { Bars3Icon, BeakerIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { CartContext } from "./CartProvider";
 const Header = () => {
   const headerRef = useRef<HTMLDivElement>(null);
@@ -33,6 +33,12 @@ const Header = () => {
     };
   }, []);
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleNav = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <header ref={headerRef} className=" normal z-10 ">
       <span className="logo">
@@ -47,9 +53,30 @@ const Header = () => {
         <Link href="/">Menu</Link>
         <Link href="/">Menu</Link>
       </nav>
-      <nav className="flex sm:hidden">
+      <button onClick={toggleNav} className="flex sm:hidden">
+        {!isOpen ? (
+          <Bars3Icon className="size-8 text-white font-bold cursor-pointer" />
+        ) : (
+          <XMarkIcon className="size-8 text-white font-bold cursor-pointer" />
+        )}
+      </button>
+      <nav className={`mobile-nav ${isOpen ? "open" : ""}`}>
         {JSON.stringify(cart)}
-        <Bars3Icon className="size-8 text-white font-bold cursor-pointer" />
+
+        <ul>
+          <li>
+            <a href="#home">Home</a>
+          </li>
+          <li>
+            <a href="#about">About</a>
+          </li>
+          <li>
+            <a href="#services">Services</a>
+          </li>
+          <li>
+            <a href="#contact">Contact</a>
+          </li>
+        </ul>
       </nav>
     </header>
   );
