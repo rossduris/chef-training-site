@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
+import StripeProducts from "./StripeProducts";
 
 const FeatureComponent = () => {
   const [loaded, setLoaded] = useState(false);
@@ -172,6 +173,8 @@ const FeatureComponent = () => {
           </button>
         </span>
       </span>
+
+      <StripeProducts />
     </div>
   );
 };
