@@ -1,9 +1,10 @@
 "use server";
-
 import stripe from "../utils/stripe";
 
-export const getStripeProducts = async () => {
-  const products = await stripe.products.list();
+export const getProducts = async () => {
+  const productData = await stripe.products.list();
+
+  const products = productData.data as Product[];
 
   return products;
 };

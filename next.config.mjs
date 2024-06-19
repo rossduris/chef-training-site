@@ -7,6 +7,11 @@ const nextConfig = {
         hostname: "durisdev.s3.amazonaws.com",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "files.stripe.com",
+        pathname: "**",
+      },
     ],
   },
 };

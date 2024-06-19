@@ -173,8 +173,6 @@ const FeatureComponent = () => {
           </button>
         </span>
       </span>
-
-      <StripeProducts />
     </div>
   );
 };
